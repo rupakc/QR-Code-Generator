@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>QR Code Generator Demo</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" media="screen" href ="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
+       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+        <form action="" method="post" role="form">
+            {{ form.csrf }}
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Type Text to Generate QR Code">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Generate</button>
+            </div>
+        </form>
+        <br><br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <div class="table-responsive">
+                    <div class="page">
+                        <div class="text-center">
+                        {% for message in messages %}
+                            {{ message[1]|safe }}
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+        {% endwith %}
+        </div>
+    </body>
+</html>
