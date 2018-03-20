@@ -1,0 +1,4 @@
+flask
+pyqrcode
+Flask-WTF
+pypng
