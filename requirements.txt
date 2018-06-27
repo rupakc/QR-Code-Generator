@@ -2,3 +2,4 @@ flask
 pyqrcode
 Flask-WTF
 pypng
+pandas
